@@ -64,7 +64,7 @@
     <h2>AI-powered services</h2>
     <p class="sub">Each one is a real-time voice or chat session.</p>
     <div class="filters" role="group" aria-label="Filter services">
-      <button aria-pressed="true" data-f="all">All</button><button aria-pressed="false" data-f="learning">Learning</button><button aria-pressed="false" data-f="family">Family</button>
+      <button type="button" aria-pressed="true" data-f="all">All</button><button type="button" aria-pressed="false" data-f="learning">Learning</button><button type="button" aria-pressed="false" data-f="family">Family</button>
     </div>
     <div class="cards" id="cards">
       <div class="card" data-k="learning"><div class="top"><span class="ic">✎</span><span class="tag">learning</span></div><h3>Storytelling Adventure</h3><p>Children co-create a story out loud while DALL·E 3 illustrations stream in live.</p></div>
@@ -85,11 +85,6 @@
 
   <footer><span>Roots · Apache-2.0 · by <a href="https://portfolio.probablysmart.com">Francisco Rivas</a> and contributors</span><a href="https://github.com/frivas/roots">github.com/frivas/roots</a></footer>
 </div>
-<script>
-  document.querySelectorAll('.filters button').forEach(b => b.onclick = () => {
-    document.querySelectorAll('.filters button').forEach(x => x.setAttribute('aria-pressed', x === b));
-    document.querySelectorAll('#cards .card').forEach(c => c.hidden = b.dataset.f !== 'all' && c.dataset.k !== b.dataset.f);
-  });
-</script>
+<script src="main.js"></script>
 </body>
 </html>

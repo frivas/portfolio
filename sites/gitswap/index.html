@@ -80,33 +80,6 @@ commit.gpgsign=true</pre>
 
   <footer>go-git-swap · MIT · by <a href="https://portfolio.probablysmart.com">Francisco Rivas</a></footer>
 </div>
-<script>
-  // Replays a real session captured from the CLI (sandboxed HOME, sample identities).
-  const menu = (active, list) => `<span class="h">Git Profile Manager</span>
--------------------
-Active Profile: <span class="ok">${active}</span>
-
-Available Profiles:
-${list}
-
-Commands:
-<span class="k">1)</span> Select profile
-<span class="k">2)</span> Create new profile
-<span class="k">3)</span> Delete profile
-<span class="k">4)</span> Exit
-
-Enter command (1-4): `;
-  const frames = [
-    menu('work', '* 1) work\n  2) personal') + '1',
-    menu('work', '* 1) work\n  2) personal') + '1\nEnter profile number: 2',
-    menu('work', '* 1) work\n  2) personal') + '1\nEnter profile number: 2\n<span class="ok">Successfully activated profile: personal</span>',
-    menu('personal', '  1) work\n* 2) personal'),
-  ];
-  const t = document.getElementById('t');
-  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  let i = 0;
-  const show = () => { t.innerHTML = frames[i] + '<span class="cur"> </span>'; i = (i + 1) % frames.length; };
-  show(); if (!reduce) setInterval(show, 1600); else { i = 3; show(); }
-</script>
+<script src="main.js"></script>
 </body>
 </html>
