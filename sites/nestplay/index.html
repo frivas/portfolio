@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nestplay — your library on Apple TV</title>
+<meta name="description" content="A self-hosted Go media server and native tvOS app: local library, YouTube home and a download queue that only publishes Apple TV–playable files.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,800&display=swap" rel="stylesheet">
+<style>
+  /* Palette from the app's NestEgg theme (RemotePoster.swift) */
+  :root{--stage:#0b1e22;--teal:#1b4148;--cream:#f6eed8;--gold:#e8c85a;--mist:#9ec7cc;--ember:#db8547}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--stage);color:var(--cream);font:17px/1.6 "Nunito Sans",system-ui,sans-serif}
+  a{color:var(--gold)}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+  nav{display:flex;justify-content:space-between;align-items:center;padding:22px 0}
+  .brand{font-weight:800;letter-spacing:.3em;font-size:14px;color:rgba(246,238,216,.75)}
+  nav a{color:rgba(246,238,216,.7);text-decoration:none;font-size:15px;margin-left:22px}
+  .hero{position:relative;border-radius:22px;overflow:hidden;margin-top:8px;aspect-ratio:5/3;max-height:640px;width:100%;
+    box-shadow:0 40px 80px -30px #000}
+  .hero img{width:100%;height:100%;object-fit:cover;display:block}
+  .hero .copy{position:absolute;left:0;right:0;bottom:0;padding:48px;background:linear-gradient(transparent,rgba(8,20,23,.92) 55%)}
+  h1{font-size:clamp(34px,5.6vw,64px);line-height:1.05;margin:0 0 10px;font-weight:800}
+  .hero p{margin:0;color:rgba(246,238,216,.8);max-width:620px}
+  .pill{display:inline-block;margin-top:22px;padding:12px 22px;border-radius:999px;background:var(--cream);color:var(--stage);font-weight:800;text-decoration:none;transition:transform .15s}
+  .pill:hover{transform:scale(1.05)}
+  .pill.ghost{background:var(--teal);color:var(--cream);margin-left:10px}
+  h2{font-size:28px;margin:0 0 6px;font-weight:800}
+  .sec{padding:64px 0 16px}
+  .sub{color:rgba(246,238,216,.65);margin:0 0 24px}
+  .shelf{display:flex;gap:18px;overflow-x:auto;padding:14px 4px 26px;scroll-snap-type:x mandatory}
+  .poster{flex:0 0 280px;scroll-snap-align:start;border-radius:14px;padding:22px;background:var(--teal);min-height:200px;
+    display:flex;flex-direction:column;justify-content:flex-end;transition:transform .2s,box-shadow .2s;outline:none}
+  .poster:hover,.poster:focus{transform:scale(1.06);box-shadow:0 20px 40px -12px #000,0 0 0 3px var(--gold)}
+  .poster b{font-size:19px;display:block;margin-bottom:6px}
+  .poster p{margin:0;font-size:14px;color:rgba(246,238,216,.75)}
+  .poster .ic{font-size:30px;margin-bottom:auto}
+  .arch{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:14px;align-items:center;text-align:center;margin-top:8px}
+  .arch div{background:rgba(27,65,72,.6);border:1px solid rgba(158,199,204,.2);border-radius:14px;padding:20px}
+  .arch b{display:block}.arch span{font-size:14px;color:var(--mist)}
+  .arch .ar{color:var(--gold);font-size:22px;background:none;border:0;padding:0}
+  .status{display:inline-flex;align-items:center;gap:8px;font-size:14px;color:var(--mist);margin-top:22px}
+  .status i{width:9px;height:9px;border-radius:50%;background:#5ec27a}
+  footer{padding:56px 0 48px;color:rgba(246,238,216,.5);font-size:14px}
+  footer a{color:inherit}
+  @media (max-width:760px){.hero{aspect-ratio:auto}.hero img{height:260px}.hero .copy{position:static;padding:24px;background:#081417}
+    .arch{grid-template-columns:1fr}.arch .ar{transform:rotate(90deg)}.pill.ghost{margin:10px 0 0}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav><span class="brand">NESTPLAY</span><span><a href="#how">How it works</a><a href="https://github.com/frivas/nestplay">GitHub</a></span></nav>
+
+  <div class="hero">
+    <img src="img/nestplay.png" alt="Nestplay's tvOS app icon: a cream play button resting in a golden nest">
+    <div class="copy">
+      <h1>Your library starts here.</h1>
+      <p>A small Go server on your Mac and a native Apple TV app. Your own videos, your YouTube home, and downloads that are guaranteed to play on the living-room TV.</p>
+      <a class="pill" href="https://github.com/frivas/nestplay">View on GitHub</a><a class="pill ghost" href="#how">How it works</a>
+    </div>
+  </div>
+
+  <div class="sec">
+    <h2>On the shelf</h2>
+    <p class="sub">What the Apple TV app gives you today.</p>
+    <div class="shelf">
+      <div class="poster" tabindex="0"><span class="ic">▶</span><b>Local library</b><p>A live catalog of your Mac's folders, watched for changes and played straight to the TV with range requests.</p></div>
+      <div class="poster" tabindex="0"><span class="ic">⌂</span><b>YouTube Home & search</b><p>Your personalized feed on the big screen, browsed with the Siri Remote.</p></div>
+      <div class="poster" tabindex="0"><span class="ic">↓</span><b>Download queue</b><p>yt-dlp jobs that only publish files the Apple TV can actually play. Playlists expand into per-video jobs.</p></div>
+      <div class="poster" tabindex="0"><span class="ic">≡</span><b>Spanish subtitles</b><p>Captions picked from available tracks, with source and language kept on every file.</p></div>
+      <div class="poster" tabindex="0"><span class="ic">◎</span><b>Offline first</b><p>Downloaded media keeps working with no internet. Nothing leaves your network.</p></div>
+    </div>
+  </div>
+
+  <div class="sec" id="how">
+    <h2>How it works</h2>
+    <p class="sub">No cloud, no port forwarding. Everything stays on your LAN.</p>
+    <div class="arch">
+      <div><b>Mac</b><span>media folders · yt-dlp · ffmpeg</span></div>
+      <div class="ar">→</div>
+      <div><b>nestplay-server</b><span>Go · SQLite catalog · fsnotify · HTTP :8765</span></div>
+      <div class="ar">→</div>
+      <div><b>Apple TV</b><span>SwiftUI tvOS app · AVPlayer</span></div>
+    </div>
+    <div class="status"><i></i>Connected to Nestplay · proof of concept, validated on Apple TV HD with tvOS 26</div>
+  </div>
+
+  <footer>Nestplay · a personal project by <a href="https://portfolio.probablysmart.com">Francisco Rivas</a> · <a href="https://github.com/frivas/nestplay">github.com/frivas/nestplay</a></footer>
+</div>
+</body>
+</html>

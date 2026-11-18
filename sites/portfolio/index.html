@@ -1,0 +1,221 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Francisco Rivas · Technical Project Manager</title>
+<meta name="description" content="Technical Project Manager at Navteca. I lead products from the first conversation to production, and I still write, review and release the code.">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+section{padding:40px 0}
+.sh{display:flex;align-items:baseline;gap:12px;margin-bottom:22px}
+.sh .p{color:var(--accent);font:13px "JetBrains Mono",monospace}
+.sh h2{margin:0;font:600 26px "Space Grotesk";letter-spacing:-.01em}
+.sh:after{content:"";flex:1;border-bottom:1px solid var(--line);transform:translateY(-6px)}
+.intro{color:var(--muted);max-width:640px;margin:-8px 0 24px;font-size:15.5px}
+/* hero */
+.hero{padding:64px 0 24px}
+.hero h1{font-size:clamp(36px,5.6vw,64px);margin:12px 0 16px}
+.hero .lead{color:var(--muted);font-size:19px;max-width:660px;margin:0 0 24px}
+.cta{display:flex;flex-wrap:wrap;gap:10px}
+.btn{font:13px "JetBrains Mono",monospace;text-decoration:none;padding:9px 16px;border-radius:8px;border:1px solid var(--line);color:var(--fg)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--bg);font-weight:600}
+.btn:hover{border-color:var(--accent)}
+/* proof: every number says what it proves */
+.top2{display:grid;grid-template-columns:minmax(0,1fr) 432px;gap:40px;align-items:center}
+.chapa{display:flex;flex-direction:column;gap:8px;text-decoration:none}
+.chapa img{width:100%;height:auto;border:1px solid var(--line);border-radius:12px}
+.chapa span{font-size:11.5px;color:var(--muted);text-align:center}
+.chapa:hover span{color:var(--accent)}
+@media (max-width:900px){.top2{grid-template-columns:1fr;gap:24px}.chapa{max-width:420px}}
+.proof{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+.pf{border-left:2px solid var(--accent);padding:4px 0 4px 16px}
+.pf b{display:block;font:700 34px/1.1 "Space Grotesk";letter-spacing:-.02em}
+.pf span{display:block;font-weight:600;margin:4px 0 4px}
+.pf p{margin:0;color:var(--muted);font-size:14px}
+/* htop, reduced to what a reader needs */
+.htop{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.list{border-right:1px solid var(--line);padding:14px 0}
+.legend{font:11px "JetBrains Mono",monospace;color:var(--muted);padding:0 16px 10px}
+table{width:100%;border-collapse:collapse;font:13px "JetBrains Mono",monospace}
+th{background:var(--accent);color:var(--bg);text-align:left;padding:4px 16px;font-weight:600;font-size:11.5px;letter-spacing:.04em}
+td{padding:8px 16px;white-space:nowrap;border-bottom:1px solid #161b21}
+tbody tr{cursor:pointer;outline:none}
+tbody tr:hover td{background:#1a2029}
+tbody tr.sel td{background:#79c0ff1f}
+tbody tr.sel td:first-child{box-shadow:inset 3px 0 var(--accent2)}
+tr.gap td{border-bottom:1px solid var(--line)}
+.st{font-size:11.5px}.st.prod{color:var(--accent)}.st.live{color:var(--accent2)}.st.rel{color:#d2a8ff}.st.al{color:#ff7b72}
+td.p{color:var(--fg);font-weight:600}
+td.role{color:var(--muted);white-space:normal}
+.keys{font:11px "JetBrains Mono",monospace;color:var(--muted);padding:12px 16px 0}
+.keys b{background:var(--accent2);color:var(--bg);padding:0 4px;margin-right:4px}
+.detail{padding:22px 24px}
+.detail .shot{border:1px solid var(--line);border-radius:10px;overflow:hidden;margin-bottom:18px;background:var(--bg)}
+.detail .shot .bar{padding:7px 10px;font:11px "JetBrains Mono",monospace}
+.detail .shot img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top}
+.detail .shot pre{margin:0;padding:18px;font:12.5px/1.8 "JetBrains Mono",monospace;color:var(--muted);aspect-ratio:16/10;white-space:pre-wrap}
+.detail .shot pre .ok{color:var(--accent)}
+.detail .quiet{aspect-ratio:16/10;display:grid;place-items:center;text-align:center;font:14px/1.9 "JetBrains Mono",monospace;color:var(--muted);border:1px dashed var(--line);border-radius:10px;margin-bottom:18px}
+.detail h3{margin:0 0 6px;font-size:22px}
+.detail p{margin:0 0 12px;color:var(--muted);font-size:14.5px}
+.facts{list-style:none;padding:0;margin:0 0 14px;font-size:14px}
+.facts li{padding:6px 0;border-top:1px solid #161b21;color:var(--muted)}
+.facts li b{color:var(--fg);font-weight:600}
+.detail a{color:var(--accent);text-decoration:none;font:13px "JetBrains Mono",monospace}
+.cap{font:11px "JetBrains Mono",monospace;color:var(--muted);padding:6px 10px;border-top:1px solid var(--line)}
+/* case study */
+.case{display:grid;grid-template-columns:1.1fr 1fr;gap:32px;align-items:start}
+.case .shot{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--card)}
+.case .shot img{display:block;width:100%}
+.steps{display:grid;gap:18px}
+.step h4{margin:0 0 4px;font:600 12px "JetBrains Mono",monospace;color:var(--accent);letter-spacing:.06em;text-transform:uppercase}
+.step p{margin:0;color:var(--muted);font-size:15px}
+.step p b{color:var(--fg);font-weight:500}
+/* how I work */
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.how{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px}
+.how .k{font:12px "JetBrains Mono",monospace;color:var(--accent)}
+.how h3{margin:6px 0 8px;font-size:19px}
+.how p{margin:0 0 12px;color:var(--muted);font-size:14.5px}
+.how .ev{font-size:13px;border-top:1px solid var(--line);padding-top:10px;color:var(--muted)}
+.how .ev b{color:var(--fg);font-weight:600}
+/* side projects, compact */
+.mini{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.mi{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;text-decoration:none;color:inherit;transition:border-color .2s}
+.mi:hover{border-color:var(--accent)}
+.mi img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;object-position:top;border-bottom:1px solid var(--line)}
+.mi div{padding:14px 16px}
+.mi h3{margin:0 0 2px;font-size:17px}
+.mi p{margin:0 0 8px;color:var(--muted);font-size:13.5px}
+.mi small{font:11.5px "JetBrains Mono",monospace;color:var(--accent2)}
+@media (max-width:900px){.proof,.three,.mini{grid-template-columns:1fr 1fr}.split,.case{grid-template-columns:1fr}.list{border-right:0;border-bottom:1px solid var(--line)}}
+@media (max-width:560px){nav.top .hm{display:none}.proof,.three,.mini{grid-template-columns:1fr}td.role,th.role{display:none}}
+</style></head><body><div class="wrap">
+
+<nav class="top mono"><b>~/frivas</b><span><a href="#work">work</a><a href="#how" class="hm">how I work</a><a href="#projects">projects</a><a href="about/">about</a></span></nav>
+
+<header class="hero">
+ <div class="top2">
+ <div>
+  <div class="prompt mono">frivas@probablysmart <span>~ $</span> whoami</div>
+  <h1>The TPM who still ships to <span style="white-space:nowrap">production<span class="c"></span></span></h1>
+  <p class="lead">Technical Project Manager at Navteca. I lead products from the first conversation to production, and I still write, review and release the code.</p>
+  <div class="cta">
+    <a class="btn primary" href="https://www.linkedin.com/in/franciscojrivash/">Talk to me on LinkedIn</a>
+    <a class="btn" href="#work">See the work ↓</a>
+    <a class="btn" href="https://github.com/frivas">GitHub</a>
+  </div>
+ </div>
+ <a class="chapa" href="https://chapa.thecreativetoken.com/u/frivas"><img src="https://chapa.thecreativetoken.com/u/frivas/badge.svg" alt="Chapa developer impact badge for Francisco Rivas" width="1200" height="630"><span class="mono">my Chapa · live from GitHub ↗</span></a>
+ </div>
+  <div class="proof">
+    <div class="pf"><b>4</b><span>products in production</span><p>Cash Flow Forecast, live at a US water utility since November 2026; Voice Atlas and Open Science Studio, in production for years; and Navteca's JupyterLab extensions.</p></div>
+    <div class="pf"><b>52</b><span>releases in 11 weeks</span><p>About five a week on Cash Flow Forecast. Each one is blocked automatically if a scan finds a fixable critical flaw or a leaked secret.</p></div>
+    <div class="pf"><b>93</b><span>releases on PyPI</span><p>Four open-source JupyterLab extensions that researchers install with one command: BXplorer, NBQueue, API Baker and Resource Tracker.</p></div>
+  </div>
+</header>
+
+<section id="work">
+  <div class="sh"><span class="p">$ htop</span><h2>What I'm running</h2></div>
+  <p class="intro">Everything I work on, sorted by priority. Select a row to see what it is, what I did and the proof.</p>
+  <div class="htop">
+    <div class="bar mono"><i></i><i></i><i></i><span>htop · frivas@life · sorted by priority</span></div>
+    <div class="split">
+      <div class="list">
+        <table>
+          <thead><tr><th>PROCESS</th><th>STATUS</th><th>SINCE</th><th class="role">MY ROLE</th></tr></thead>
+          <tbody id="ps"></tbody>
+        </table>
+        <div class="keys"><b>↑↓</b>select · family and faith ignore kill signals</div>
+      </div>
+      <div class="detail" id="detail"></div>
+    </div>
+  </div>
+</section>
+
+<section id="work-case">
+  <div class="sh"><span class="p">$ cat case-study.md</span><h2>Cash Flow Forecast, from idea to go-live</h2></div>
+  <div class="case">
+    <figure class="shot" style="margin:0">
+      <img src="img/2-scenarios.png" alt="What-if simulation screen, demo data">
+    </figure>
+    <div class="steps">
+      <div class="step"><h4>The problem</h4><p>A US water utility's Finance team needed to see its cash <b>five years ahead</b>, check it against its reserve and debt covenants every month, and test decisions like rate changes or new bonds before making them.</p></div>
+      <div class="step"><h4>What I did</h4><p>Led it end to end: <b>product direction</b> with the client's finance and AI leadership, the <b>architecture</b>, the security model and the <b>release process</b>, through to go-live in November 2026 as a <b>SaaS product</b> on Navteca's Azure.</p></div>
+      <div class="step"><h4>What shipped</h4><p>Forecasts with an honest likely range, private what-if simulations, a "view as of" any past date with an audit trail, an in-app guide and narrated video walkthroughs.</p></div>
+      <div class="step"><h4>How it stays safe</h4><p>Each customer's data is <b>walled off at the database</b>. Every release is scanned for vulnerabilities and leaked secrets, reviewed for security, and promoted to production unchanged from what was tested.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="sh"><span class="p">$ cat WORKFLOW.md</span><h2>How I work</h2></div>
+  <div class="three">
+    <div class="how"><div class="k">01 · lead</div><h3>Start from the problem</h3><p>I sit with the people who own the problem, turn it into a plan the team can follow, and keep risks and decisions written down.</p><div class="ev"><b>Evidence:</b> Cash Flow Forecast went from an empty repository in June to production in November.</div></div>
+    <div class="how"><div class="k">02 · build</div><h3>Stay hands-on</h3><p>I write and review code every week: Python, TypeScript, Go and Swift. It keeps my estimates honest and my reviews useful.</p><div class="ev"><b>Evidence:</b> 366 pull requests merged in the last year, across work and my own products.</div></div>
+    <div class="how"><div class="k">03 · ship</div><h3>Ship small, ship safe</h3><p>Small changes, tests written first, and an automatic security check that can stop a release before it reaches users.</p><div class="ev"><b>Evidence:</b> the same release gate runs on all six of my own projects, each release published with its report.</div></div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="sh"><span class="p">$ ls ~/projects</span><h2>Things I built on my own</h2></div>
+  <p class="intro">Products I designed, built and run myself, on nights and weekends. Each has a live site.</p>
+  <div class="mini" id="mini"></div>
+</section>
+
+<footer class="mono">
+  <div><h3>Francisco Rivas</h3><p>Technical Project Manager at Navteca.<br>Madrid, Spain.</p></div>
+  <div><h3>Contact</h3><ul><li><a href="https://www.linkedin.com/in/franciscojrivash/">linkedin ↗</a></li><li><a href="https://github.com/frivas">github ↗</a></li></ul></div>
+  <div><h3>This site</h3><ul><li><a href="#work">work</a></li><li><a href="#projects">projects</a></li><li><a href="about/">about</a></li></ul></div>
+  <p class="legal">// © 2026 Francisco Rivas · static HTML on S3 + CloudFront, no tracking</p>
+</footer>
+</div>
+<script src="projects.js"></script>
+<script>
+const base="",pj=n=>PROJECTS.find(p=>p.name===n);
+// status: prod = real users in production, live = public app/site, rel = released software, al = always
+const P=[
+ {c:"family",st:["al","always"],since:"—",role:"husband, father of two",quiet:"nice -20<br>nothing gets scheduled ahead of this",
+  h:"Family",p:"First, always. Everything else on this list runs around it."},
+ {c:"faith",st:["al","always"],since:"—",role:"part of everything",quiet:"systemctl is-enabled faith<br><span style='color:var(--accent)'>enabled</span>",
+  h:"Faith",p:"It shapes how I work, how I treat people and what I choose to spend my time on.",gap:true},
+ {c:"cash-forecast",st:["prod","in production"],since:"2026",role:"led it, end to end",img:"img/1-dashboard.png",url:"cash-forecast · demo data",
+  h:"Cash Flow Forecast",p:"Cash forecasting for a US water utility's Finance team: five years ahead, checked against its covenants every month.",
+  f:[["Live since November 2026","SaaS, run on Navteca's Azure"],["52 releases in 11 weeks","about five a week, each security-checked"],["1,500+ automated backend tests","plus end-to-end tests of the key screens"]],
+  link:["#work-case","→ read the case study"]},
+ {c:"voice-atlas",st:["prod","in production"],since:"2019",role:"Navteca product",img:"img/voice-atlas.jpg",url:"voiceatlas.com",
+  h:"Voice Atlas",p:"Navteca's generative-AI search for enterprise, government and science. It answers only from the documents you give it, in Teams, Slack, Zoom or any website.",
+  f:[["In production since 2019","seven years, now on its second generation"],["Answers only from your sources","designed against made-up answers"]],
+  link:["https://www.voiceatlas.com","→ voiceatlas.com"]},
+ {c:"open-science-studio",st:["prod","in production"],since:"2023",role:"Navteca platform",img:"img/open-science-studio.jpg",url:"opensciencestudio.com",
+  h:"Open Science Studio",p:"Navteca's JupyterHub platform for science: notebooks, Dask and shared tools that help researchers work together, with AI support powered by Voice Atlas.",
+  f:[["In production","for research teams"],["Built on open source","JupyterHub, Dask and our own extensions"]],
+  link:["https://www.opensciencestudio.com","→ opensciencestudio.com"]},
+ {c:"jupyterlab-ext",st:["live","on PyPI"],since:"2023",role:"Navteca open source",url:"pypi.org · jupyterlab extensions",
+  pre:`$ pip install jupyterlab-nbqueue\n\n<span class="ok">✓</span> jupyterlab-nbqueue      v0.1.47  35 releases\n<span class="ok">✓</span> resource-tracker        v0.2.25  25 releases\n<span class="ok">✓</span> jupyterlab-bxplorer     v0.2.32  17 releases\n<span class="ok">✓</span> jupyterlab-apibaker     v0.1.15  16 releases`,
+  h:"JupyterLab extensions",p:"Open-source add-ons for Open Science Studio and any JupyterLab: browse cloud datasets, queue notebook runs, turn a notebook function into a secured API, and track resource use.",
+  f:[["93 releases on PyPI","across four extensions"],["Install with one command","pip install, no setup"]],
+  link:["https://github.com/Navteca/jupyterlab-nbqueue","→ source on GitHub"],gap:true},
+ {c:"open-source",st:["live","merged"],since:"2026",role:"contributor",url:"github.com/agentregistry-dev",
+  pre:`<span class="ok">✓</span> agentregistry  Helm chart (install on Kubernetes)\n<span class="ok">✓</span> agentregistry  Helm chart follow-ups\n<span class="ok">✓</span> agentregistry  Fix image version in the chart\n<span class="ok">✓</span> agentevals     Pydantic AI example\n<span class="ok">✓</span> agentevals     Request fix\n<span class="ok">✓</span> agentevals     README fix for PyPI`,
+  h:"Open source",p:"Tools we use at work, improved in the open so others benefit too.",
+  f:[["6 changes merged","by the projects' own maintainers"],["Helm chart for Agent Registry","lets teams install it on Kubernetes"]],
+  link:["https://github.com/agentregistry-dev/agentregistry","→ agentregistry on GitHub"],gap:true},
+ ...[["Roots","live","live app","2025"],["Gapwire","live","live app","2026"],["Reviewer","live","live app","2026"],
+     ["Nestplay","rel","released","2026"],["Turnsmith","rel","v0.3.0","2026"],["Go Git Swap","rel","v0.1.0","2025"]].map(([n,k,s,y])=>{const p=pj(n);
+   return {c:n.toLowerCase().replace(/ /g,"-"),st:[k,s],since:y,role:"built solo",img:base+p.shot,url:p.url.replace("https://",""),h:p.name,p:p.description,
+     f:[[p.tagline,""]],link:[p.url,"→ "+(p.kind==="site"?"open the app":"open the site")]}})
+];
+const ps=document.getElementById("ps"),dt=document.getElementById("detail");
+ps.innerHTML=P.map((p,i)=>`<tr data-i="${i}" tabindex="${i===2?0:-1}" class="${p.gap?"gap":""}"><td class="p">${p.c}</td><td><span class="st ${p.st[0]}">${p.st[1]}</span></td><td>${p.since}</td><td class="role">${p.role}</td></tr>`).join("");
+const rows=[...ps.children];let cur=2;
+function sel(i,focus){cur=(i+P.length)%P.length;const p=P[cur];rows.forEach((r,j)=>{r.classList.toggle("sel",j===cur);r.tabIndex=j===cur?0:-1});if(focus)rows[cur].focus();
+  const media=p.quiet?`<div class="quiet">${p.quiet}</div>`:`<div class="shot"><div class="bar"><i></i><i></i><i></i><span>${p.url}</span></div>${p.pre?`<pre>${p.pre}</pre>`:`<img src="${p.img}" alt="${p.h} screenshot">`}${p.cap?`<div class="cap">${p.cap}</div>`:""}</div>`;
+  dt.innerHTML=`${media}<h3>${p.h}</h3><p>${p.p}</p>${p.f?`<ul class="facts">${p.f.map(([a,b])=>`<li><b>${a}</b>${b?` · ${b}`:""}</li>`).join("")}</ul>`:""}${p.link?`<a href="${p.link[0]}">${p.link[1]}</a>`:""}`}
+rows.forEach(r=>r.onclick=()=>sel(+r.dataset.i));
+ps.onkeydown=e=>{if(e.key==="ArrowDown"){sel(cur+1,true);e.preventDefault()}if(e.key==="ArrowUp"){sel(cur-1,true);e.preventDefault()}};
+// hold the panel at its tallest row so the page below never moves
+function fit(){const c=cur;dt.style.minHeight="";let m=0;for(let i=0;i<P.length;i++){sel(i);m=Math.max(m,dt.offsetHeight)}dt.style.minHeight=m+"px";sel(c)}
+fit();document.fonts.ready.then(fit);addEventListener("resize",fit);
+const STATUS={Roots:"live app · v0.2.0",Gapwire:"live app · v1.0.0",Reviewer:"live app · works offline",Nestplay:"self-hosted · Go + tvOS",Turnsmith:"v0.3.0 · macOS, Linux, Windows","Go Git Swap":"v0.1.0 · CLI"};
+document.getElementById("mini").innerHTML=PROJECTS.map(p=>`<a class="mi" href="${p.url}"><img src="${base+p.shot}" alt="${p.name} screenshot" loading="lazy"><div><h3>${p.name}</h3><p>${p.tagline}</p><small>${STATUS[p.name]}</small></div></a>`).join("");
+</script></body></html>
