@@ -60,7 +60,11 @@ function sel(i,focus){cur=(i+P.length)%P.length;const p=P[cur];rows.forEach((r,j
   const media=p.quiet?`<div class="quiet">${p.quiet}</div>`:`<div class="shot"><div class="addr"><span><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M2.5 5V3.5a2.5 2.5 0 0 1 5 0V5" fill="none" stroke="currentColor" stroke-width="1.4"/><rect x="1" y="5" width="8" height="6.5" rx="1.2" fill="currentColor"/></svg>${p.url}</span></div>${p.pre?`<pre>${p.pre}</pre>`:`<img src="${p.img}" alt="${p.h} screenshot">`}</div>`;
   dt.innerHTML=`${media}<h3>${p.h}</h3><p>${p.p}</p>${p.f?`<ul class="facts">${p.f.map(([a,b])=>`<li><b>${a}</b>${b?` · ${b}`:""}</li>`).join("")}</ul>`:""}${[p.link,p.more].map(l=>l?`<a href="${l[0]}"${ext(l[0])}>${l[1]}</a>`:"").join(" ")}`}
 rows.forEach((r,i)=>r.onclick=()=>sel(i));
-ps.onkeydown=e=>{if(e.key==="ArrowDown"){sel(cur+1,true);e.preventDefault()}if(e.key==="ArrowUp"){sel(cur-1,true);e.preventDefault()}};
+// → or Enter opens the selected row: other sites in a new tab, in-page anchors by scrolling
+function openRow(){const l=P[cur].link;if(!l)return;
+  if(l[0].startsWith("#"))document.querySelector(l[0])?.scrollIntoView({behavior:"smooth"});else window.open(l[0],"_blank","noopener")}
+ps.onkeydown=e=>{if(e.key==="ArrowDown"){sel(cur+1,true);e.preventDefault()}if(e.key==="ArrowUp"){sel(cur-1,true);e.preventDefault()}
+  if(e.key==="ArrowRight"||e.key==="Enter"){openRow();e.preventDefault()}};
 // hold the panel at its tallest row so the page below never moves
 function fit(){const c=cur;dt.style.minHeight="";let m=0;for(let i=0;i<P.length;i++){sel(i);m=Math.max(m,dt.offsetHeight)}dt.style.minHeight=m+"px";sel(c)}
 fit();document.fonts.ready.then(fit);addEventListener("resize",fit);
