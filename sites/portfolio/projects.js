@@ -33,8 +33,8 @@ window.PROJECTS = [
   },
   {
     name: "Roots",
-    tagline: "AI-powered education platform.",
-    description: "Interactive storytelling with live illustration, AI tutors for chess, math and languages, and parent coaching — bilingual English/Spanish with real-time voice.",
+    tagline: "A free, open-source alternative to Madrid's school platform.",
+    description: "An open-source replacement for Raíces, the Community of Madrid's school system, built with Juan González. Bilingual English/Spanish, free for the community, and a regional winner (EMEA) at the World's Largest Hackathon presented by Bolt.",
     stack: ["React", "Fastify", "Supabase", "OpenAI", "ElevenLabs"],
     url: "https://roots.probablysmart.com",
     repo: "https://github.com/frivas/roots",
