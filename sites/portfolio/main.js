@@ -1,7 +1,7 @@
 /**
  * One row of the htop table and its detail panel.
  * @typedef {{c:string, st:[string,string], since:string, role:string, h:string, p:string,
- *   quiet?:string, img?:string, url?:string, pre?:string, f?:[string,string][], link?:[string,string], gap?:boolean}} Row
+ *   quiet?:string, img?:string, url?:string, pre?:string, f?:[string,string][], link?:[string,string], more?:[string,string], gap?:boolean}} Row
  */
 /** @param {string} id */
 const $=id=>/** @type {HTMLElement} */(document.getElementById(id));
@@ -44,6 +44,12 @@ const P=[
    /** @type {Row} */
    const row={c:n.toLowerCase().replace(/ /g,"-"),st:[k,s],since:y,role:"built solo",img:base+p.shot,url:p.url.replace("https://",""),h:p.name,p:p.description,
      f:[[p.tagline,""]],link:[p.url,"→ "+(p.kind==="site"?"open the app":"open the site")]};
+   if(n==="Roots")Object.assign(row,{role:"built with Juan González",
+     p:"An open-source replacement for Raíces, the Community of Madrid's school system that families, teachers and students use every day, and that crashes at exam time. Built by two Madrid parents and free for the community.",
+     f:[["Regional winner, EMEA","World's Largest Hackathon presented by Bolt, 2025, 130,000+ builders"],
+        ["Built with Juan González",'<a href="https://portfolio.thecreativetoken.com" target="_blank" rel="noopener">portfolio.thecreativetoken.com</a>'],
+        ["Free and open source","in English and Spanish"]],
+     more:["https://devpost.com/software/roots-wpsx9u","→ see it on Devpost"]});
    return row})
 ];
 const ps=$("ps"),dt=$("detail");
@@ -52,12 +58,12 @@ const rows=/** @type {HTMLElement[]} */([...ps.children]);let cur=2;
 /** @param {number} i @param {boolean} [focus] */
 function sel(i,focus){cur=(i+P.length)%P.length;const p=P[cur];rows.forEach((r,j)=>{r.classList.toggle("sel",j===cur);r.tabIndex=j===cur?0:-1});if(focus)rows[cur].focus();
   const media=p.quiet?`<div class="quiet">${p.quiet}</div>`:`<div class="shot"><div class="addr"><span><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M2.5 5V3.5a2.5 2.5 0 0 1 5 0V5" fill="none" stroke="currentColor" stroke-width="1.4"/><rect x="1" y="5" width="8" height="6.5" rx="1.2" fill="currentColor"/></svg>${p.url}</span></div>${p.pre?`<pre>${p.pre}</pre>`:`<img src="${p.img}" alt="${p.h} screenshot">`}</div>`;
-  dt.innerHTML=`${media}<h3>${p.h}</h3><p>${p.p}</p>${p.f?`<ul class="facts">${p.f.map(([a,b])=>`<li><b>${a}</b>${b?` · ${b}`:""}</li>`).join("")}</ul>`:""}${p.link?`<a href="${p.link[0]}"${ext(p.link[0])}>${p.link[1]}</a>`:""}`}
+  dt.innerHTML=`${media}<h3>${p.h}</h3><p>${p.p}</p>${p.f?`<ul class="facts">${p.f.map(([a,b])=>`<li><b>${a}</b>${b?` · ${b}`:""}</li>`).join("")}</ul>`:""}${[p.link,p.more].map(l=>l?`<a href="${l[0]}"${ext(l[0])}>${l[1]}</a>`:"").join(" ")}`}
 rows.forEach((r,i)=>r.onclick=()=>sel(i));
 ps.onkeydown=e=>{if(e.key==="ArrowDown"){sel(cur+1,true);e.preventDefault()}if(e.key==="ArrowUp"){sel(cur-1,true);e.preventDefault()}};
 // hold the panel at its tallest row so the page below never moves
 function fit(){const c=cur;dt.style.minHeight="";let m=0;for(let i=0;i<P.length;i++){sel(i);m=Math.max(m,dt.offsetHeight)}dt.style.minHeight=m+"px";sel(c)}
 fit();document.fonts.ready.then(fit);addEventListener("resize",fit);
 /** @type {Record<string,string>} */
-const STATUS={Roots:"live app · v0.2.0",Gapwire:"live app · v1.0.0",Reviewer:"live app · works offline",Nestplay:"self-hosted · Go + tvOS",Turnsmith:"v0.3.0 · macOS, Linux, Windows","Go Git Swap":"v0.1.0 · CLI"};
+const STATUS={Roots:"live app · EMEA winner",Gapwire:"live app · v1.0.0",Reviewer:"live app · works offline",Nestplay:"self-hosted · Go + tvOS",Turnsmith:"v0.3.0 · macOS, Linux, Windows","Go Git Swap":"v0.1.0 · CLI"};
 $("mini").innerHTML=PROJECTS.map(p=>`<a class="mi" href="${p.url}"${ext(p.url)}><img src="${base+p.shot}" alt="${p.name} screenshot" loading="lazy"><div><h3>${p.name}</h3><p>${p.tagline}</p><small>${STATUS[p.name]}</small></div></a>`).join("");
