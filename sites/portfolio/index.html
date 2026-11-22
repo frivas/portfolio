@@ -88,7 +88,13 @@ td.role{color:var(--muted);white-space:normal}
 .how .ev b{color:var(--fg);font-weight:600}
 /* side projects, compact */
 .mini{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.mi{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;text-decoration:none;color:inherit;transition:border-color .2s}
+.intro a{color:var(--accent);text-decoration:none}
+.mi{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;position:relative;text-decoration:none;color:inherit;transition:border-color .2s}
+.mi h3 a{color:inherit;text-decoration:none}
+.mi h3 a::after{content:"";position:absolute;inset:0}
+.mi .win{position:absolute;top:10px;left:10px;font:600 11px "JetBrains Mono",monospace;background:var(--accent);color:var(--bg);padding:3px 8px;border-radius:999px}
+.mi .award{position:relative;z-index:1;display:block;margin:0 0 8px;font-size:13px;color:var(--fg)}
+.mi .award a{color:var(--accent);text-decoration:none;font:12.5px "JetBrains Mono",monospace}
 .mi:hover{border-color:var(--accent)}
 .mi img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;object-position:top;border-bottom:1px solid var(--line)}
 .mi div{padding:14px 16px}
@@ -166,7 +172,7 @@ td.role{color:var(--muted);white-space:normal}
 
 <section id="projects">
   <div class="sh"><span class="p">$ ls ~/projects</span><h2>Things I built</h2></div>
-  <p class="intro">Products I designed, built and run on nights and weekends: five on my own, and Roots with Juan González. Each has a live site.</p>
+  <p class="intro">Products I designed, built and run on nights and weekends: five on my own, and Roots with <a href="https://portfolio.thecreativetoken.com" target="_blank" rel="noopener">Juan González</a>. Each has a live site.</p>
   <div class="mini" id="mini"></div>
 </section>
 

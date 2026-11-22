@@ -33,7 +33,8 @@ window.PROJECTS = [
   },
   {
     name: "Roots",
-    tagline: "A free, open-source alternative to Madrid's school platform.",
+    tagline: "A free, open-source alternative to Madrid's Raíces school platform.",
+    award: { label: "Regional winner, EMEA, at the World's Largest Hackathon presented by Bolt", url: "https://devpost.com/software/roots-wpsx9u" },
     description: "An open-source replacement for Raíces, the Community of Madrid's school system, built with Juan González. Bilingual English/Spanish, free for the community, and a regional winner (EMEA) at the World's Largest Hackathon presented by Bolt.",
     stack: ["React", "Fastify", "Supabase", "OpenAI", "ElevenLabs"],
     url: "https://roots.probablysmart.com",

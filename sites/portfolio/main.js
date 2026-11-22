@@ -70,4 +70,5 @@ function fit(){const c=cur;dt.style.minHeight="";let m=0;for(let i=0;i<P.length;
 fit();document.fonts.ready.then(fit);addEventListener("resize",fit);
 /** @type {Record<string,string>} */
 const STATUS={Roots:"live app · EMEA winner",Gapwire:"live app · v1.0.0",Reviewer:"live app · works offline",Nestplay:"self-hosted · Go + tvOS",Turnsmith:"v0.3.0 · macOS, Linux, Windows","Go Git Swap":"v0.1.0 · CLI"};
-$("mini").innerHTML=PROJECTS.map(p=>`<a class="mi" href="${p.url}"${ext(p.url)}><img src="${base+p.shot}" alt="${p.name} screenshot" loading="lazy"><div><h3>${p.name}</h3><p>${p.tagline}</p><small>${STATUS[p.name]}</small></div></a>`).join("");
+// Each card is one big link (the title's link stretches over it); an award link sits above that layer.
+$("mini").innerHTML=PROJECTS.map(p=>`<article class="mi">${p.award?`<span class="win">★ Winner</span>`:""}<img src="${base+p.shot}" alt="${p.name} screenshot" loading="lazy"><div><h3><a href="${p.url}"${ext(p.url)}>${p.name}</a></h3><p>${p.tagline}</p>${p.award?`<p class="award">${p.award.label}. <a href="${p.award.url}"${ext(p.award.url)}>See the award →</a></p>`:""}<small>${STATUS[p.name]}</small></div></article>`).join("");
