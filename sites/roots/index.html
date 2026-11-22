@@ -22,6 +22,8 @@
   h1{font-size:clamp(38px,5.6vw,64px);line-height:1.02;font-weight:900;letter-spacing:-.03em;margin:0 0 18px}
   h1 em{font-style:normal;color:var(--red)}
   .lead{font-size:19px;color:var(--muted);margin:0 0 28px}
+  .win{display:inline-block;margin:0 0 18px;padding:6px 14px;border-radius:999px;background:var(--red-soft);color:var(--red);font-size:13.5px;font-weight:700;text-decoration:none}
+  .team p{margin:0 0 8px}
   .lang{display:inline-flex;border:1px solid var(--line);border-radius:999px;font-size:13px;margin-bottom:22px;overflow:hidden}
   .lang span{padding:5px 12px}.lang .on{background:var(--red);color:#fff}
   .frame{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--card);box-shadow:0 24px 50px -28px rgba(0,0,0,.35)}
@@ -52,6 +54,7 @@
 
   <div class="hero">
     <div>
+      <a class="win" href="https://devpost.com/software/roots-wpsx9u" target="_blank" rel="noopener">★ Regional winner, EMEA · World's Largest Hackathon →</a>
       <div class="lang"><span class="on">EN</span><span>ES</span></div>
       <h1>School life, <em>with an AI</em> at the family's side.</h1>
       <p class="lead">Roots reimagines the school–family portal: schedules, messages and services in one place, plus AI tutors, a storyteller that illustrates as it speaks, and a wellness coach for parents.</p>
@@ -83,7 +86,14 @@
     <div class="stack"><span>React 19</span><span>TypeScript</span><span>Tailwind</span><span>Fastify</span><span>Supabase</span><span>Clerk</span><span>OpenAI</span><span>ElevenLabs</span><span>Server-Sent Events</span><span>Lingo.dev</span></div>
   </div>
 
-  <footer><span>Roots · Apache-2.0 · by <a href="https://portfolio.probablysmart.com">Francisco Rivas</a> and contributors</span><a href="https://github.com/frivas/roots">github.com/frivas/roots</a></footer>
+  <section class="sec team">
+    <h2>Built by two Madrid parents</h2>
+    <p class="sub">Free for the community and open source. A regional winner (EMEA) at the World's Largest Hackathon presented by Bolt, 2025.</p>
+    <p>Francisco Rivas: <a href="https://portfolio.probablysmart.com" target="_blank" rel="noopener">portfolio</a> · <a href="https://www.linkedin.com/in/franciscojrivash/" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://github.com/frivas" target="_blank" rel="noopener">GitHub</a></p>
+    <p>Juan González: <a href="https://portfolio.thecreativetoken.com" target="_blank" rel="noopener">portfolio</a> · <a href="https://www.linkedin.com/in/juanagonzalezp/" target="_blank" rel="noopener">LinkedIn</a> · <a href="https://github.com/juan294" target="_blank" rel="noopener">GitHub</a></p>
+  </section>
+
+  <footer><span>Roots · Apache-2.0 · by Francisco Rivas, Juan González and contributors</span><a href="https://github.com/frivas/roots">github.com/frivas/roots</a></footer>
 </div>
 <script src="main.js"></script>
 </body>
