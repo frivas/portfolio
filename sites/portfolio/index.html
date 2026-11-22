@@ -55,7 +55,9 @@ td.role{color:var(--muted);white-space:normal}
 .keys b{background:var(--accent2);color:var(--bg);padding:0 4px;margin-right:4px}
 .detail{padding:22px 24px}
 .detail .shot{border:1px solid var(--line);border-radius:10px;overflow:hidden;margin-bottom:18px;background:var(--bg)}
-.detail .shot .bar{padding:7px 10px;font:11px "JetBrains Mono",monospace}
+.detail .shot .addr{display:flex;justify-content:center;padding:7px 10px;border-bottom:1px solid var(--line);background:var(--card)}
+.detail .shot .addr span{display:inline-flex;align-items:center;gap:6px;max-width:100%;padding:3px 12px;border-radius:999px;background:var(--bg);border:1px solid var(--line);font:11px "JetBrains Mono",monospace;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.detail .shot .addr svg{width:9px;height:11px;flex:none;color:var(--muted)}
 .detail .shot img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top}
 .detail .shot pre{margin:0;padding:18px;font:12.5px/1.8 "JetBrains Mono",monospace;color:var(--muted);aspect-ratio:16/10;white-space:pre-wrap}
 .detail .shot pre .ok{color:var(--accent)}

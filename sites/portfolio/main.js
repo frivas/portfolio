@@ -51,7 +51,7 @@ ps.innerHTML=P.map((p,i)=>`<tr data-i="${i}" tabindex="${i===2?0:-1}" class="${p
 const rows=/** @type {HTMLElement[]} */([...ps.children]);let cur=2;
 /** @param {number} i @param {boolean} [focus] */
 function sel(i,focus){cur=(i+P.length)%P.length;const p=P[cur];rows.forEach((r,j)=>{r.classList.toggle("sel",j===cur);r.tabIndex=j===cur?0:-1});if(focus)rows[cur].focus();
-  const media=p.quiet?`<div class="quiet">${p.quiet}</div>`:`<div class="shot"><div class="bar"><i></i><i></i><i></i><span>${p.url}</span></div>${p.pre?`<pre>${p.pre}</pre>`:`<img src="${p.img}" alt="${p.h} screenshot">`}</div>`;
+  const media=p.quiet?`<div class="quiet">${p.quiet}</div>`:`<div class="shot"><div class="addr"><span><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M2.5 5V3.5a2.5 2.5 0 0 1 5 0V5" fill="none" stroke="currentColor" stroke-width="1.4"/><rect x="1" y="5" width="8" height="6.5" rx="1.2" fill="currentColor"/></svg>${p.url}</span></div>${p.pre?`<pre>${p.pre}</pre>`:`<img src="${p.img}" alt="${p.h} screenshot">`}</div>`;
   dt.innerHTML=`${media}<h3>${p.h}</h3><p>${p.p}</p>${p.f?`<ul class="facts">${p.f.map(([a,b])=>`<li><b>${a}</b>${b?` · ${b}`:""}</li>`).join("")}</ul>`:""}${p.link?`<a href="${p.link[0]}"${ext(p.link[0])}>${p.link[1]}</a>`:""}`}
 rows.forEach((r,i)=>r.onclick=()=>sel(i));
 ps.onkeydown=e=>{if(e.key==="ArrowDown"){sel(cur+1,true);e.preventDefault()}if(e.key==="ArrowUp"){sel(cur-1,true);e.preventDefault()}};
