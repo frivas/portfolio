@@ -8,6 +8,8 @@ const $=id=>/** @type {HTMLElement} */(document.getElementById(id));
 /** @param {string} n */
 const pj=n=>{const p=PROJECTS.find(p=>p.name===n);if(!p)throw new Error(`unknown project ${n}`);return p};
 const base="";
+/** Attributes that open a link in a new tab when it leaves the site. @param {string} href */
+const ext=href=>/^https?:/.test(href)?' target="_blank" rel="noopener"':"";
 // status: prod = real users in production, live = public app/site, rel = released software, al = always
 /** @type {Row[]} */
 const P=[
@@ -50,7 +52,7 @@ const rows=/** @type {HTMLElement[]} */([...ps.children]);let cur=2;
 /** @param {number} i @param {boolean} [focus] */
 function sel(i,focus){cur=(i+P.length)%P.length;const p=P[cur];rows.forEach((r,j)=>{r.classList.toggle("sel",j===cur);r.tabIndex=j===cur?0:-1});if(focus)rows[cur].focus();
   const media=p.quiet?`<div class="quiet">${p.quiet}</div>`:`<div class="shot"><div class="bar"><i></i><i></i><i></i><span>${p.url}</span></div>${p.pre?`<pre>${p.pre}</pre>`:`<img src="${p.img}" alt="${p.h} screenshot">`}</div>`;
-  dt.innerHTML=`${media}<h3>${p.h}</h3><p>${p.p}</p>${p.f?`<ul class="facts">${p.f.map(([a,b])=>`<li><b>${a}</b>${b?` · ${b}`:""}</li>`).join("")}</ul>`:""}${p.link?`<a href="${p.link[0]}">${p.link[1]}</a>`:""}`}
+  dt.innerHTML=`${media}<h3>${p.h}</h3><p>${p.p}</p>${p.f?`<ul class="facts">${p.f.map(([a,b])=>`<li><b>${a}</b>${b?` · ${b}`:""}</li>`).join("")}</ul>`:""}${p.link?`<a href="${p.link[0]}"${ext(p.link[0])}>${p.link[1]}</a>`:""}`}
 rows.forEach((r,i)=>r.onclick=()=>sel(i));
 ps.onkeydown=e=>{if(e.key==="ArrowDown"){sel(cur+1,true);e.preventDefault()}if(e.key==="ArrowUp"){sel(cur-1,true);e.preventDefault()}};
 // hold the panel at its tallest row so the page below never moves
@@ -58,4 +60,4 @@ function fit(){const c=cur;dt.style.minHeight="";let m=0;for(let i=0;i<P.length;
 fit();document.fonts.ready.then(fit);addEventListener("resize",fit);
 /** @type {Record<string,string>} */
 const STATUS={Roots:"live app · v0.2.0",Gapwire:"live app · v1.0.0",Reviewer:"live app · works offline",Nestplay:"self-hosted · Go + tvOS",Turnsmith:"v0.3.0 · macOS, Linux, Windows","Go Git Swap":"v0.1.0 · CLI"};
-$("mini").innerHTML=PROJECTS.map(p=>`<a class="mi" href="${p.url}"><img src="${base+p.shot}" alt="${p.name} screenshot" loading="lazy"><div><h3>${p.name}</h3><p>${p.tagline}</p><small>${STATUS[p.name]}</small></div></a>`).join("");
+$("mini").innerHTML=PROJECTS.map(p=>`<a class="mi" href="${p.url}"${ext(p.url)}><img src="${base+p.shot}" alt="${p.name} screenshot" loading="lazy"><div><h3>${p.name}</h3><p>${p.tagline}</p><small>${STATUS[p.name]}</small></div></a>`).join("");
