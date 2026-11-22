@@ -16,6 +16,16 @@ python3 -m http.server 8765 --bind 127.0.0.1
 
 Then open http://localhost:8765/sites/portfolio/.
 
+## Releases
+
+Push a version tag and the Release workflow does the rest:
+
+```bash
+git tag v1.1.0 && git push origin v1.1.0
+```
+
+The tag's commit goes through the shared security gate. The GitHub release lists the security results, an SBOM section and the merged pull requests, with the CycloneDX SBOM (`sbom.cdx.json`) and every scan report attached.
+
 ## Checks
 
 CI runs these on every push to `main` and every pull request, together with the shared frivas security gate (leaked secrets, vulnerabilities, CodeQL). The tools are dev-only and never ship.
